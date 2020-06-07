@@ -15,9 +15,12 @@ The nodes in SuperWeb Analutics.com using Thirft unions  that can be used for no
 
  #### 3.-What are the rules that i need to follow if i want to change the schema but still be backward compatible existing data?
  For this, we have 3 rules:
- #### 1.-Fields  may  be  renamed  because  the  serialized  form  of  an  object  uses  thefield IDs, not the names, to identify fields
- #### 2.-A  field  may  be  removed,  but  you  must  never  reuse  that  field  ID because the Thrift would try todeserialize that old data into the new field, which will lead to either invalid orincorrect data.
- #### 3.-Only  optional  fields  can  be  added  to  existing  structs because existing data won’t have those fields and thus won’t be deserializable.
+ 
+ 1.-Fields  may  be  renamed  because  the  serialized  form  of  an  object  uses  thefield IDs, not the names, to identify fields
+ 
+  2.-A  field  may  be  removed,  but  you  must  never  reuse  that  field  ID because the Thrift would try todeserialize that old data into the new field, which will lead to either invalid orincorrect data.
+  
+3.-Only  optional  fields  can  be  added  to  existing  structs because existing data won’t have those fields and thus won’t be deserializable.
 
 #### 4.-What is the key envolving Thrift Schemas? Describe it.
 
