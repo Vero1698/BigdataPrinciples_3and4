@@ -46,7 +46,24 @@ Tunable storage and processing costs:  You may choose to compress your data to h
 Enforce-able immu-tability: The best you can do is put checks in place to disallow mutable operations. These checks should prevent bugs or other random errors from trampling over existing data.
 
 
-#### 
+#### What can we use the vertical partition in a data set  and filesystem for?
+
+The vertical partition is a partition of your data so that a function can access the data for calculation to make the batch layer of a data set more efficient, allowing large performance gains.
+And , if we talk abou the filesystem, the vertical partition can be done by sorting yourdata into separate folders.
+
+#### Why do distributed file systems become a problem in the short term?
+
+The problems that can arise are:
+
+1.- The addiction of master data sets, where accessing data from different folders can generate a serious problem when finding files with the same name, then the mv operation will fail.
+
+2.- At the time of storing data, you choose a file format and compression, where when you find different formats, this process will fail absolutely and copy the records in a new folder into a new file with the file format used in master folder.
+
+#### how can you make use of a distributed filesystem to store the masterdataset for SuperWebAnalytics.com?
+
+ A key observation is that a graph schema provides a natural vertical partitioning ofthe data. You can store all edge and property types in their own folders. Vertically par-titioning the data this way lets you efficiently run computations that only look at cer-tain properties and edges
+
+
 
 
 
